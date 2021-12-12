@@ -1,0 +1,12 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/CommonsAudit/CommonAudit/PS_ConsumeQueueJMS_JCA" name="PS_ConsumeQueueJMS_JCA-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="RegistryAuditV1.0.wsdl" namespace="http://xmlns.oracle.com/CommonsAudit/CommonAudit/RegistryAuditV1.0"/>
+    <wsdl:binding name="RegistryAuditInterface-binding" type="reg:RegistryAuditInterface" xmlns:reg="http://xmlns.oracle.com/CommonsAudit/CommonAudit/RegistryAuditV1.0">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="RegistryAudit">
+            <soap:operation soapAction="RegistryAudit"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+<adapter-config name="BS_RegitryAuditPesblogo_JCA" adapter="db" wsdlLocation="../WSDLs/JCA_RegistryAudit.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory UIConnectionName="USR_ESB_LOGS" location="eis/DB/OSB_LOGS"/>
+  <endpoint-interaction portType="BS_RegitryAuditPesblogo_JCA_ptt" operation="BS_RegitryAuditPesblogo_JCA">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="DEVELOP"/>
+      <property name="PackageName" value="AUD_REGISTRY_PKG"/>
+      <property name="ProcedureName" value="PRC_AUDIT"/>
+      <property name="QueryTimeout" value="10"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

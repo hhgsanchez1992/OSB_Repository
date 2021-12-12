@@ -1,0 +1,42 @@
+<xsd:schema targetNamespace="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/CON/AuthenticationServices/V1.0"
+            elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/CON/AuthenticationServices/V1.0"
+            xmlns:commons="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/Comunes/v1.0">
+  <xsd:import schemaLocation="../../../CommonComponents_OSS/Resources/Schemas/CommonFaultMessageV1.0.xsd"
+              namespace="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/Comunes/v1.0"/>
+    <xsd:element name="authenticationServicesRequest">
+      <xsd:annotation>
+        <xsd:documentation>
+          Author: Haiber Humberto Galindo Sanchez
+          Email: hhgsanchez1992@gmail.com
+          Date: 22/09/2021
+          Version: v1.0 (22/09/2021)
+          Purpose: Utility that allows authentication to be carried out in order to consume OSB services.
+          Track changes: Creation.
+          Observations: N/A.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="xsd:anyType" minOccurs="1"/>
+        <xsd:element name="inbound" type="xsd:anyType" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="authenticationServicesResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="code" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="description" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="fault" type="commons:faultMessageType"/>
+  <xsd:complexType name="AuditItems_Type">
+    <xsd:sequence>
+      <xsd:element name="channel" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="tableName" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="traceabilityId" minOccurs="0" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

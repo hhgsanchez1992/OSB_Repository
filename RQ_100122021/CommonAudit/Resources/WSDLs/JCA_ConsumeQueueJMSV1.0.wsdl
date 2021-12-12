@@ -1,0 +1,8 @@
+<wsdl:definitions name="PS_ConsumeQueueJMS_JCA" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/CommonsAudit/CommonAudit/PS_ConsumeQueueJMS_JCA" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/CommonsAudit/CommonAudit/PS_ConsumeQueueJMS_JCA" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:pc="http://xmlns.oracle.com/pcbpel/" xmlns:imp1="http://xmlns.oracle.com/CommonsAudit/CommonAudit/RegistryAuditV1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <plt:partnerLinkType name="RegistryAuditInterface_plt">
+    <plt:role name="RegistryAudit_role">
+      <plt:portType name="imp1:RegistryAuditInterface"/>
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:import namespace="http://xmlns.oracle.com/CommonsAudit/CommonAudit/RegistryAuditV1.0" location="RegistryAuditV1.0.wsdl"/>
+</wsdl:definitions>

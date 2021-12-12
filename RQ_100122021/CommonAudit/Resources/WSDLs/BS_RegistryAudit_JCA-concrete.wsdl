@@ -1,0 +1,12 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/CommonsAudit/CommonAudit/BS_RegitryAuditPesblogo_JCA" name="BS_RegitryAuditPesblogo_JCA-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="JCA_RegistryAudit.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/CommonsAudit/CommonAudit/BS_RegitryAuditPesblogo_JCA"/>
+    <wsdl:binding name="BS_RegitryAuditPesblogo_JCA_ptt-binding" type="bs:BS_RegitryAuditPesblogo_JCA_ptt" xmlns:bs="http://xmlns.oracle.com/pcbpel/adapter/db/CommonsAudit/CommonAudit/BS_RegitryAuditPesblogo_JCA">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="BS_RegitryAuditPesblogo_JCA">
+            <soap:operation soapAction="BS_RegitryAuditPesblogo_JCA"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

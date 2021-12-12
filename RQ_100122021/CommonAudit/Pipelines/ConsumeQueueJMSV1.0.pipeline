@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="CommonAudit/Resources/WSDLs/RegistryAuditV1.0"/>
+            <con:binding>
+                <con:name>RegistryAuditSoapBinding</con:name>
+                <con:namespace>http://xmlns.oracle.com/CommonsAudit/CommonAudit/RegistryAuditV1.0</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-N3f5715ff.56698d56.0.173104b50c6.N7e91">
+        <con:pipeline type="request" name="request-N3f5715ff.56698d56.0.173104b50c6.N7fbf">
+            <con:stage id="_StageId-N3f5715ff.56698d56.0.173104b50c6.N7fbd" name="stg_inputValidate">
+                <con:context>
+                    <con1:userNsDecl prefix="v1" namespace="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0"/>
+                </con:context>
+                <con:actions>
+                    <con2:validate>
+                        <con1:id>_ActionId-N3f5715ff.56698d56.0.173104b50c6.N7f56</con1:id>
+                        <con2:schema ref="CommonAudit/Resources/Schemas/RegistryAuditV1.0"/>
+                        <con2:schemaElement xmlns:v1="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0">v1:registryAuditRequest</con2:schemaElement>
+                        <con2:varName>body</con2:varName>
+                        <con2:location>
+                            <con1:xpathText>./v1:registryAuditRequest</con1:xpathText>
+                        </con2:location>
+                    </con2:validate>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-a011302.N71df7888.0.173120b21a0.N7fcd" name="stg_inputTransform">
+                <con:context>
+                    <con1:userNsDecl prefix="v1" namespace="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0"/>
+                </con:context>
+                <con:actions>
+                    <con2:replace contents-only="true" varName="body">
+                        <con1:id>_ActionId-a011302.N71df7888.0.173120b21a0.N7fcc</con1:id>
+                        <con2:location>
+                            <con1:xpathText>.</con1:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                            <con1:xqueryTransform>
+                                <con1:resource ref="CommonAudit/Resources/XQueries/in_PS_ConsumeQueueJMS_to_BS_RegistryAudit_JCA"/>
+                                <con1:param name="request">
+                                    <con1:path>$body/v1:registryAuditRequest</con1:path>
+                                </con1:param>
+                            </con1:xqueryTransform>
+                        </con2:expr>
+                    </con2:replace>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-a011302.N71df7888.0.173120b21a0.N7fc9" name="stg_consumeQueueToJMSLog">
+                <con:context>
+                    <con1:userNsDecl prefix="v1" namespace="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0"/>
+                </con:context>
+                <con:actions>
+                    <con3:report>
+                        <con1:id>_ActionId-a011302.N71df7888.0.173120b21a0.N7fc5</con1:id>
+                        <con3:expr>
+                            <con1:xqueryText>$body</con1:xqueryText>
+                        </con3:expr>
+                        <con3:labels>
+                            <con3:key>consumeQueueJMS</con3:key>
+                            <con3:varName>body</con3:varName>
+                            <con3:value>
+                                <con1:xpathText>./v1:registryAuditRequest</con1:xpathText>
+                            </con3:value>
+                        </con3:labels>
+                    </con3:report>
+                    <con3:log>
+                        <con1:id>_ActionId-a011302.N71df7888.0.173120b21a0.N7fc8</con1:id>
+                        <con3:logLevel>info</con3:logLevel>
+                        <con3:expr>
+                            <con1:xqueryText>$body</con1:xqueryText>
+                        </con3:expr>
+                        <con3:message>Consume RegistryAuditPESBLOGO - Info</con3:message>
+                    </con3:log>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f5715ff.56698d56.0.173104b50c6.N7fbe"/>
+        <con:pipeline type="error" name="error-N3f5715ff.56698d56.0.173104b50c6.N7e91">
+            <con:stage id="_StageId-a011302.N71df7888.0.173120b21a0.N7ef6" name="stg_consumeQueueErrorLog">
+                <con:context>
+                    <con1:userNsDecl prefix="v1" namespace="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0"/>
+                </con:context>
+                <con:actions>
+                    <con3:report>
+                        <con1:id>_ActionId-a011302.N71df7888.0.173120b21a0.N7ef5</con1:id>
+                        <con3:expr>
+                            <con1:xqueryText>$fault</con1:xqueryText>
+                        </con3:expr>
+                        <con3:labels>
+                            <con3:key>consumeQueueJMSError</con3:key>
+                            <con3:varName>fault</con3:varName>
+                            <con3:value>
+                                <con1:xpathText>.</con1:xpathText>
+                            </con3:value>
+                        </con3:labels>
+                    </con3:report>
+                    <con3:log>
+                        <con1:id>_ActionId-a011302.N71df7888.0.173120b21a0.N7ef4</con1:id>
+                        <con3:logLevel>error</con3:logLevel>
+                        <con3:expr>
+                            <con1:xqueryText>$fault</con1:xqueryText>
+                        </con3:expr>
+                        <con3:message>Consume RegistryAuditPESBLOGO - Error</con3:message>
+                    </con3:log>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="ppn_consumeQueueJMS">
+                <con:request>request-N3f5715ff.56698d56.0.173104b50c6.N7fbf</con:request>
+                <con:response>response-N3f5715ff.56698d56.0.173104b50c6.N7fbe</con:response>
+            </con:pipeline-node>
+            <con:route-node name="rn_consumeQueueJMS" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                <con:context/>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>_ActionId-N3f5715ff.56698d56.0.173104b50c6.N7fc0</con2:id>
+                        <con1:service ref="CommonAudit/BusinessServices/BS_RegistryAudit_JCA" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>BS_RegitryAuditPesblogo_JCA</con1:operation>
+                        <con1:outboundTransform>
+                            <con3:routing-options xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N27b2e763.0.17469acb4b7.N7e97</con2:id>
+                                <con3:mode>request</con3:mode>
+                                <con3:qualityOfService>best-effort</con3:qualityOfService>
+                            </con3:routing-options>
+                        </con1:outboundTransform>
+                        <con1:responseTransform/>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns:composite xmlns:ns="http://xmlns.oracle.com/sca/1.0">
+    <ns:reference>
+        <ns:interface src="BusinessService:OSB_JMS_Auditoria_Pull/BusinessServices/DB_RegistrarAuditoria_BS_V2"/>
+    </ns:reference>
+    <ns:reference>
+        <ns:interface src="BusinessService:CON_EAPLOGS/BusinessServices/BS_PRC_WS_ES_VALIDO"/>
+    </ns:reference>
+</ns:composite>
