@@ -1,5 +1,5 @@
 # Utilitarios OSB
-Middleware 12C (OSB - Servicios) - Oracle Service Bus
+### Middleware 12C (OSB - Servicios) - Oracle Service Bus
 
 * <b> Grupo:</b> hhgsanchez <br>
 * <b> Requerimiento:</b> RQ_100122021 <br>
@@ -8,6 +8,14 @@ Middleware 12C (OSB - Servicios) - Oracle Service Bus
 * <b> Área Solicitante:</b> Fábrica desarrollo<br>
 * <b> Release Manager:</b> Haiber Humberto Galindo Sanchez<br>
 * <b> Responsable Desarrollo:</b> Haiber Humberto Galindo Sanchez<br>
+
+## Diagrama de casos de uso
+
+![Diagrama de Casos de Uso](https://user-images.githubusercontent.com/95983030/146459206-58781ad0-e0ef-4792-b77d-f49d644f41a0.jpg)
+
+## Diagrama de despliegue
+
+![Diagrama de Despliegue](https://user-images.githubusercontent.com/95983030/146459248-a6c3f1cd-9244-49ef-969a-8a96819625c7.jpg)
 
 ## Diagrama de componentes
 
