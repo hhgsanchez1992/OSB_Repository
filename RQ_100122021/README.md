@@ -1,4 +1,4 @@
-# OSB_Repository
+# Utilitarios OSB
 Middleware 12C (OSB - Servicios) - Oracle Service Bus
 
 * <b> Grupo:</b> hhgsanchez <br>
@@ -9,3 +9,6 @@ Middleware 12C (OSB - Servicios) - Oracle Service Bus
 * <b> Release Manager:</b> Haiber Humberto Galindo Sanchez<br>
 * <b> Responsable Desarrollo:</b> Haiber Humberto Galindo Sanchez<br>
 
+## Diagrama de componentes
+
+![Diagrama de Componentes](https://user-images.githubusercontent.com/95983030/146454241-02dd87cf-1b14-4fdb-9efd-b148849cdc9e.jpg)
