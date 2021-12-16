@@ -4,7 +4,7 @@
 
 * <b> Grupo:</b> hhgsanchez <br>
 * <b> Objetivo:</b> Desarrollo de un componente que permita realizar el registro de auditoria<br>
-* <b> Descripción del proyecto:</b> Proyecto utilitario que permite realizar el registro de auditoria de los servicios implementados en el OSB<br>
+* <b> Descripción del proyecto:</b> Proyecto utilitario que permite realizar el registro de auditoría de los servicios implementados en el OSB<br>
 * <b> Área Solicitante:</b> Fábrica desarrollo<br>
 * <b> Release Manager:</b> Haiber Humberto Galindo Sanchez<br>
 * <b> Responsable Desarrollo:</b> Haiber Humberto Galindo Sanchez<br>
