@@ -4,7 +4,7 @@
 
 * <b> Grupo:</b> hhgsanchez <br>
 * <b> Objetivo:</b> Desarrollo de un componente que permita realizar el manejo de excepciones en OSB<br>
-* <b> Descripción del proyecto:</b> Proyecto utilitario que permita realizar el manejo de excepciones de los servicios imiplementados en el OSB<br>
+* <b> Descripción del proyecto:</b> Proyecto utilitario que permita realizar el manejo de excepciones de los servicios implementados en el OSB, así como también realizar la consulta de propiedades en la base de datos OSB_LOGS<br>
 * <b> Área Solicitante:</b> Fábrica desarrollo<br>
 * <b> Release Manager:</b> Haiber Humberto Galindo Sanchez<br>
 * <b> Responsable Desarrollo:</b> Haiber Humberto Galindo Sanchez<br>
