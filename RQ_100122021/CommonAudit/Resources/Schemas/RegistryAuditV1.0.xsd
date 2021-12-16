@@ -3,7 +3,7 @@
             xmlns="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0"
             targetNamespace="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0"
             elementFormDefault="qualified">
-  <xsd:element name="registryAuditRequest">
+  <xsd:element name="RegistryAuditRequest">
   <xsd:annotation>
     <xsd:documentation>
 	Author: Haiber Humberto Galindo Sanchez

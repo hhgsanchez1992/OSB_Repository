@@ -1,0 +1,13 @@
+<adapter-config name="BS_PRC_WS_ES_VALIDO" adapter="db" wsdlLocation="../WSDLs/JCA_PRC_WS_ES_VALIDO.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="DEVELOP" location="eis/DB/EAP_LOGS"/>
+  <endpoint-interaction portType="BS_PRC_WS_ES_VALIDO_ptt" operation="BS_PRC_WS_ES_VALIDO">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="DEVELOP"/>
+      <property name="ProcedureName" value="PRC_WS_ES_VALIDO"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+      <property name="QueryTimeout" value="15"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

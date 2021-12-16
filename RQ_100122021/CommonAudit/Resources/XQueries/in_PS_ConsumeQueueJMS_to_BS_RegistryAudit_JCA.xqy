@@ -7,9 +7,9 @@ declare namespace ns1="http://www.amx.com/co/schema/mobile/aplicationIntegration
 declare namespace ns2="http://xmlns.oracle.com/pcbpel/adapter/db/sp/BS_RegitryAuditPesblogo_JCA";
 (:: import schema at "../Schemas/BS_RegistryAudit_JCA_sp.xsd" ::)
 
-declare variable $request as element() (:: schema-element(ns1:registryAuditRequest) ::) external;
+declare variable $request as element() (:: schema-element(ns1:RegistryAuditRequest) ::) external;
 
-declare function local:func($request as element() (:: schema-element(ns1:registryAuditRequest) ::)) as element() (:: schema-element(ns2:InputParameters) ::) {
+declare function local:func($request as element() (:: schema-element(ns1:RegistryAuditRequest) ::)) as element() (:: schema-element(ns2:InputParameters) ::) {
     <ns2:InputParameters>
         {
             if ($request/ns1:tableName)

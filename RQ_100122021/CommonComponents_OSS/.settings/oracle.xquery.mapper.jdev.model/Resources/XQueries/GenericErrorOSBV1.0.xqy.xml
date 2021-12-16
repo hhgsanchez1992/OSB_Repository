@@ -1,6 +1,0 @@
-<view_states>
-   <function arity="4" name="func">
-      <source_tree_view last.visible.row="3" last.visible.path="/sourceRoot[[0]]/legacySystem[[3]]" first.visible.path="/sourceRoot[[0]]/NO_NAME[[0]]" expanded.paths="" first.visible.row="0" selected.paths=""/>
-      <target_tree_view last.visible.row="7" last.visible.path="/TargetRoot[[0]]/Conditional[[0]]/Fault[[1]]/detail[[2]]" first.visible.path="/TargetRoot[[0]]/Conditional[[0]]" expanded.paths="/TargetRoot[[0]]/Conditional[[0]]&#xA;/TargetRoot[[0]]/Conditional[[0]]/Fault[[1]]&#xA;/TargetRoot[[0]]/Conditional[[0]]/Fault[[1]]/Conditional[[0]]" first.visible.row="0" selected.paths=""/>
-   </function>
-</view_states>

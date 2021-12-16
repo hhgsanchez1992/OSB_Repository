@@ -14,7 +14,7 @@
         <tran:provider-id>jms</tran:provider-id>
         <tran:inbound>false</tran:inbound>
         <tran:URI>
-            <env:value>jms://172.16.10.53:7101/AuditLogsConnectionFactoryOSB/AuditLogsQueueJMSOSB</env:value>
+            <env:value>jms://localhost:7101/AuditLogsConnectionFactoryOSB/AuditLogsQueueJMSOSB</env:value>
         </tran:URI>
         <tran:outbound-properties>
             <tran:load-balancing-algorithm>round-robin</tran:load-balancing-algorithm>
@@ -27,13 +27,13 @@
             <jms:is-secure>false</jms:is-secure>
             <jms:outbound-properties>
                 <jms:message-type>Text</jms:message-type>
-                <jms:expiration>500</jms:expiration>
+                <jms:expiration>10000</jms:expiration>
                 <jms:enable-message-persistence>true</jms:enable-message-persistence>
                 <jms:pass-caller-subject>false</jms:pass-caller-subject>
             </jms:outbound-properties>
             <jms:dispatch-policy>SBDefaultResponseWorkManager</jms:dispatch-policy>
             <jms:request-encoding>UTF-8</jms:request-encoding>
-            <jms:jndi-timeout>1</jms:jndi-timeout>
+            <jms:jndi-timeout>5</jms:jndi-timeout>
         </tran:provider-specific>
     </con:endpointConfig>
 </con:businessServiceEntry>

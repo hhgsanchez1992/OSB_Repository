@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.amx.com/CO/Schema/ConsultProperties/v1"
+            targetNamespace="http://www.amx.com/CO/Schema/ConsultProperties/v1" elementFormDefault="qualified">
+  <xsd:element name="ConsultPropertiesRequest">
+    <xsd:annotation>
+      <xsd:documentation>
+	Author: Haiber Humberto Galindo Sanchez
+	Email: hhgsanchez1992@gmail.com
+	Date: 22/09/2021
+	Version: v1.0 (22/09/2021)
+	Purpose: Utility that allows querying the properties in the database to be used in the OSB services.
+	Track changes: Creation.
+	Observations: N/A.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="filterBy" minOccurs="1" type="xsd:string"/>
+        <xsd:element name="filterValue" minOccurs="1" type="xsd:string"/>
+        <xsd:element name="updateBusiness" minOccurs="0" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ConsultPropertiesResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="code" minOccurs="1" type="xsd:string"/>
+        <xsd:element name="description" minOccurs="1" type="xsd:string"/>
+        <xsd:element name="records" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="record" minOccurs="0" type="RecordType" maxOccurs="unbounded"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="RecordType">
+    <xsd:sequence>
+      <xsd:element name="table" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="code" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="value" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="status" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="application" minOccurs="0" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,13 @@
+<adapter-config name="BS_ConsultProperties_JCA" adapter="db" wsdlLocation="../WSDLs/JCA_ConsultProperties_JCA.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="BD OSB LOGS" location="eis/DB/OSB_LOGS"/>
+  <endpoint-interaction portType="BS_ConsultProperties_JCA_ptt" operation="BS_ConsultProperties_JCA">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="DEVELOP"/>
+      <property name="ProcedureName" value="SP_CONSULT_TABLE_PROPERTIES"/>
+      <property name="QueryTimeout" value="10"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

@@ -5,10 +5,10 @@ xquery version "1.0" encoding "utf-8";
 declare namespace ns1="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0";
 (:: import schema at "../Schemas/RegistryAuditV1.0.xsd" ::)
 
-declare variable $request as element() (:: schema-element(ns1:registryAuditRequest) ::) external;
+declare variable $request as element() (:: schema-element(ns1:RegistryAuditRequest) ::) external;
 
-declare function local:func($request as element() (:: schema-element(ns1:registryAuditRequest) ::)) as element() (:: schema-element(ns1:registryAuditRequest) ::) {
-    <ns1:registryAuditRequest>
+declare function local:func($request as element() (:: schema-element(ns1:RegistryAuditRequest) ::)) as element() (:: schema-element(ns1:RegistryAuditRequest) ::) {
+    <ns1:RegistryAuditRequest>
         {
             if ($request/ns1:tableName)
             then <ns1:tableName>{fn:data($request/ns1:tableName)}</ns1:tableName>
@@ -64,7 +64,7 @@ declare function local:func($request as element() (:: schema-element(ns1:registr
             then <ns1:channel>{fn:data($request/ns1:channel)}</ns1:channel>
             else ()
         }
-    </ns1:registryAuditRequest>
+    </ns1:RegistryAuditRequest>
 };
 
 local:func($request)

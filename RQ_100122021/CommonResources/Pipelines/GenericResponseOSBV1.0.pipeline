@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="CommonResources/Resources/WSDLs/CommonResponseV1.0"/>
+            <con:binding>
+                <con:name>CommonResponseSoapBinding</con:name>
+                <con:namespace>http://xmlns.oracle.com/Parce/CommonResources/PS_CommonResponseV1_0</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-N3f57e0a8.N4e2f420.0.17dbe8c6121.N8000">
+            <con:stage id="_StageId-N3f57e0a8.N4e2f420.0.17dbe8c6121.N7de2" name="stg_removeNameSpaces">
+                <con:context>
+                    <con1:userNsDecl prefix="v1" namespace="http://www.amx.com/co/schema/integration/common/response/v1.0"/>
+                </con:context>
+                <con:actions>
+                    <con1:replace contents-only="true" varName="body" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57e0a8.N4e2f420.0.17dbe8c6121.N7de1</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="CommonResources/Resources/XQueries/RemoveNameSpacesV1.0_Util"/>
+                                <con2:param name="input">
+                                    <con2:path>$body/*:PayloadRequest</con2:path>
+                                </con2:param>
+                            </con2:xqueryTransform>
+                        </con1:expr>
+                    </con1:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f57e0a8.N4e2f420.0.17dbe8c6121.N7fff">
+            <con:stage id="_StageId-N3f57e0a8.N4e2f420.0.17dbe8c6121.N7ce4" name="stg_commonResponse">
+                <con:context>
+                    <con1:userNsDecl prefix="v1" namespace="http://www.amx.com/co/schema/integration/common/response/v1.0"/>
+                </con:context>
+                <con:actions>
+                    <con1:replace contents-only="true" varName="body" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57e0a8.N4e2f420.0.17dbe8c6121.N7ce6</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                <con2:resource ref="CommonResources/Resources/XQueries/GenericResponseBuilderOSBV1.0"/>
+                                <con2:param name="request">
+                                    <con2:path>$body/*:PayloadRequest</con2:path>
+                                </con2:param>
+                            </con2:xqueryTransform>
+                        </con1:expr>
+                    </con1:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="ppn_commonResponse">
+                <con:request>request-N3f57e0a8.N4e2f420.0.17dbe8c6121.N8000</con:request>
+                <con:response>response-N3f57e0a8.N4e2f420.0.17dbe8c6121.N7fff</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

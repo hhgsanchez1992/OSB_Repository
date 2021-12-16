@@ -15,7 +15,7 @@
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="RegistryAuditRequest">
-        <wsdl:part name="RegistryAuditRequest" element="inp1:registryAuditRequest"/>
+        <wsdl:part name="RegistryAuditRequest" element="inp1:RegistryAuditRequest"/>
     </wsdl:message>
     <wsdl:portType name="RegistryAuditInterface">
         <wsdl:operation name="RegistryAudit">

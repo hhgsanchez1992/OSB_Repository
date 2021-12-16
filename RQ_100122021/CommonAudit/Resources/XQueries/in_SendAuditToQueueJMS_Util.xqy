@@ -28,8 +28,8 @@ declare function local:func($tableName as xs:string,
                             $levelLog as xs:string, 
                             $message as xs:string, 
                             $channel as xs:string) 
-                            as element() (:: schema-element(ns1:registryAuditRequest) ::) {
-    <ns1:registryAuditRequest>
+                            as element() (:: schema-element(ns1:RegistryAuditRequest) ::) {
+    <ns1:RegistryAuditRequest>
         <ns1:tableName>{fn:data($tableName)}</ns1:tableName>
         <ns1:schema>{fn:data($schema)}</ns1:schema>
         <ns1:transactionId>{fn:data($transactionId)}</ns1:transactionId>
@@ -41,7 +41,7 @@ declare function local:func($tableName as xs:string,
         <ns1:levelLog>{fn:data($levelLog)}</ns1:levelLog>
         <ns1:message>{fn:data($message)}</ns1:message>
         <ns1:channel>{fn:data($channel)}</ns1:channel>
-    </ns1:registryAuditRequest>
+    </ns1:RegistryAuditRequest>
 };
 
 local:func($tableName, $schema, $transactionId, $operationName, $request, $response, $dateIni, $dateEnd, $levelLog, $message, $channel)

@@ -22,10 +22,10 @@
                     <con2:validate>
                         <con1:id>_ActionId-N3f5715ff.14f65a9f.0.173125bc53e.N7ffd</con1:id>
                         <con2:schema ref="CommonAudit/Resources/Schemas/RegistryAuditV1.0"/>
-                        <con2:schemaElement xmlns:v1="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0">v1:registryAuditRequest</con2:schemaElement>
+                        <con2:schemaElement xmlns:v1="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0">v1:RegistryAuditRequest</con2:schemaElement>
                         <con2:varName>body</con2:varName>
                         <con2:location>
-                            <con1:xpathText>./v1:registryAuditRequest</con1:xpathText>
+                            <con1:xpathText>./v1:RegistryAuditRequest</con1:xpathText>
                         </con2:location>
                     </con2:validate>
                 </con:actions>
@@ -44,7 +44,7 @@
                             <con3:key>sendAuditToQueueJMS</con3:key>
                             <con3:varName>body</con3:varName>
                             <con3:value>
-                                <con1:xpathText>./v1:registryAuditRequest</con1:xpathText>
+                                <con1:xpathText>./v1:RegistryAuditRequest</con1:xpathText>
                             </con3:value>
                         </con3:labels>
                     </con3:report>

@@ -1,0 +1,49 @@
+<wsdl:definitions name="ConsultPropertiesV1.0"
+                  targetNamespace="http://xmlns.oracle.com/RQ_100122021/CommonResources/ConsultPropertiesV1.0"
+                  xmlns:tns="http://xmlns.oracle.com/RQ_100122021/CommonResources/ConsultPropertiesV1.0"
+                  xmlns:inp1="http://www.amx.com/CO/Schema/ConsultProperties/v1"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:fault="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/Comunes/v1.0">
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.amx.com/CO/Schema/ConsultProperties/v1"
+                  schemaLocation="../Schemas/ConsultPropertiesV1.0.xsd"/>
+      <xsd:import namespace="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/Comunes/v1.0"
+                  schemaLocation="../../../CommonResources/Resources/Schemas/GenericErrorOSBV1.0.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultPropertiesRequest">
+    <wsdl:part name="consultPropertiesRequest" element="inp1:ConsultPropertiesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ConsultPropertiesResponse">
+    <wsdl:part name="consultPropertiesResponse" element="inp1:ConsultPropertiesResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ConsultPropertiesInterface">
+    <wsdl:operation name="ConsultProperties">
+      <wsdl:input message="tns:ConsultPropertiesRequest"/>
+      <wsdl:output message="tns:ConsultPropertiesResponse"/>
+      <wsdl:fault message="tns:Fault" name="fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultPropertiesSoapBinding" type="tns:ConsultPropertiesInterface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConsultProperties">
+      <soap:operation style="document" soapAction="ConsultProperties"/>
+      <wsdl:input>
+        <soap:body use="literal"
+                   namespace="http://xmlns.oracle.com/RQ_100122021/CommonResources/ConsultPropertiesV1.0"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"
+                   namespace="http://xmlns.oracle.com/RQ_100122021/CommonResources/ConsultPropertiesV1.0"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="Fault">
+    <wsdl:part name="fault" element="fault:FaultMessage"/>
+  </wsdl:message>
+</wsdl:definitions>

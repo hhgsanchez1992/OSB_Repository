@@ -1,0 +1,49 @@
+<wsdl:definitions name="PrcEsValidoV1.0" targetNamespace="http://www.amx.com/co/schema/mobile/common/service/AuthenticationServices/V1.0" xmlns:tns="http://www.amx.com/co/schema/mobile/common/service/AuthenticationServices/V1.0" xmlns:inp1="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/CON/AuthenticationServices/V1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:comunes="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/Comunes/v1.0">
+  <wsdl:documentation>
+        Author: Haiber Humberto Galindo
+        Email: hhgsanchez1992@gmail.com
+        Date: 22/09/2020
+        Version: 1.0
+        Purpose: Web service that allows perform authentication to consume the services.
+        Track changes: 
+        v1.0 (22/09/2020): Creation
+        Observations: N/A.
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/CON/AuthenticationServices/V1.0" schemaLocation="../Schemas/WSAuthenticationServicesV1.0.xsd"/>
+      <xsd:import namespace="http://www.amx.com/co/schema/mobile/common/aplicationIntegration/Comunes/v1.0" schemaLocation="../../../CommonResources/Resources/Schemas/GenericErrorOSBV1.0.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticationServicesRequest">
+    <wsdl:part name="request" element="inp1:AuthenticationServicesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticationServicesResponse">
+    <wsdl:part name="response" element="inp1:AuthenticationServicesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Fault">
+    <wsdl:part name="fault" element="comunes:FaultMessage"/>
+  </wsdl:message>
+  <wsdl:portType name="AuthenticationServicesInterface">
+    <wsdl:operation name="AuthenticationServices">
+      <wsdl:input message="tns:AuthenticationServicesRequest"/>
+      <wsdl:output message="tns:AuthenticationServicesResponse"/>
+      <wsdl:fault name="Fault" message="tns:Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthenticationServicesSoapBinding" type="tns:AuthenticationServicesInterface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AuthenticationServices">
+      <soap:operation style="document" soapAction="PrcEsValido"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.amx.com/co/schema/mobile/common/service/AuthenticationServices/V1.0"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.amx.com/co/schema/mobile/common/service/AuthenticationServices/V1.0"/>
+      </wsdl:output>
+      <wsdl:fault name="Fault">
+        <soap:fault name="PrcEsValidofault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

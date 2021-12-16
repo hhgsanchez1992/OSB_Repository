@@ -1,5 +1,5 @@
-<adapter-config name="PS_ConsumeQueueJMS_JCA" adapter="jms" wsdlLocation="../WSDLs/JCA_ConsumeQueueJMSV1.0.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
-  
+<adapter-config name="PS_ConsumeQueueJMS_JCA" adapter="jms" wsdlLocation="../WSDLs/JCA_ConsumeQueueJMSV1.0.wsdl"
+                xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
   <connection-factory UIConnectionName="IntegratedWebLogicServer" location="eis/wls/Queue" UIJmsProvider="WLSJMS"/>
   <endpoint-activation portType="RegistryAuditInterface" operation="RegistryAudit">
     <activation-spec className="oracle.tip.adapter.jms.inbound.JmsConsumeActivationSpec">
@@ -8,5 +8,4 @@
       <property name="PayloadType" value="TextMessage"/>
     </activation-spec>
   </endpoint-activation>
-
 </adapter-config>

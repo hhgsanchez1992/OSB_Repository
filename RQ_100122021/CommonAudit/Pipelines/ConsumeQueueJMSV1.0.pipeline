@@ -22,10 +22,10 @@
                     <con2:validate>
                         <con1:id>_ActionId-N3f5715ff.56698d56.0.173104b50c6.N7f56</con1:id>
                         <con2:schema ref="CommonAudit/Resources/Schemas/RegistryAuditV1.0"/>
-                        <con2:schemaElement xmlns:v1="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0">v1:registryAuditRequest</con2:schemaElement>
+                        <con2:schemaElement xmlns:v1="http://www.amx.com/co/schema/mobile/aplicationIntegration/CON/RegistryAudit/v1.0">v1:RegistryAuditRequest</con2:schemaElement>
                         <con2:varName>body</con2:varName>
                         <con2:location>
-                            <con1:xpathText>./v1:registryAuditRequest</con1:xpathText>
+                            <con1:xpathText>./v1:RegistryAuditRequest</con1:xpathText>
                         </con2:location>
                     </con2:validate>
                 </con:actions>
@@ -44,7 +44,7 @@
                             <con1:xqueryTransform>
                                 <con1:resource ref="CommonAudit/Resources/XQueries/in_PS_ConsumeQueueJMS_to_BS_RegistryAudit_JCA"/>
                                 <con1:param name="request">
-                                    <con1:path>$body/v1:registryAuditRequest</con1:path>
+                                    <con1:path>$body/v1:RegistryAuditRequest</con1:path>
                                 </con1:param>
                             </con1:xqueryTransform>
                         </con2:expr>
@@ -65,7 +65,7 @@
                             <con3:key>consumeQueueJMS</con3:key>
                             <con3:varName>body</con3:varName>
                             <con3:value>
-                                <con1:xpathText>./v1:registryAuditRequest</con1:xpathText>
+                                <con1:xpathText>./v1:RegistryAuditRequest</con1:xpathText>
                             </con3:value>
                         </con3:labels>
                     </con3:report>
